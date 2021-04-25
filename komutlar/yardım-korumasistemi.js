@@ -2,7 +2,7 @@ const AsreaperDiscord = require('discord.js');
 const AsreaperClient = new AsreaperDiscord.Client();
 const ayarlar = require('../ayarlar.json');
 let prefix = ayarlar.prefix
-let gif = `https://cdn.discordapp.com/attachments/769957882166116353/769974488670011422/standard.gif`
+let gif = ``
 
 exports.run = (client, message) => {
  const AsreaperEmbed = new AsreaperDiscord.MessageEmbed()
