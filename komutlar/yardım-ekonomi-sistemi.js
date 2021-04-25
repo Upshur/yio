@@ -6,11 +6,11 @@ let Prefix = ayarlar.prefix
 exports.run = (client, message) => {
  const AsreaperEmbed = new AsreaperDiscord.MessageEmbed()
   .setColor(0x36393F)
- .setAuthor(`${client.user.username} | Çekiliş Sistemi Yardım Menüsü`)
+ .setAuthor(`${client.user.username} | Ekonomi Sistemi Yardım Menüsü`)
  .setDescription(`
- **${Prefix}çekiliş** \n-> Çekiliş başlatır.
- **${Prefix}reroll** \n-> Çekilişi yeniden çeker.
- **${Prefix}çekilişbitir** \n-> Çekilişi bitirir.
+ **${Prefix}bilgiler** \n-> Hesap Bilgisini Gösterir
+ **${Prefix}bakiye** \n-> Bakiyeyi Gösterir
+ **${Prefix}g* \n-> 
 `)
  .setFooter(`Asreaper Bot`)
  .setTimestamp()

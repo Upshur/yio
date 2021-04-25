@@ -8,13 +8,13 @@ let soyisim = args.slice(0).join(" ");
 if (!soyisim)
 
 return message.channel.send(
- "**Arda Keklik**\n\n**Lütfen soy ismini belirtin.** \n・**Örnek:** **!soyisim-ayarla** `(Soyisim)` \n・`**Tüm komutlara erişmek için -> !yardım**\n\n**Arda Keklik** "
+ "**Asreaper**\n\n**Lütfen soy ismini belirtin.** \n・**Örnek:** **!soyisim-ayarla** `(Soyisim)` \n・`**Tüm komutlara erişmek için -> !yardım**\n\n**Asreaper** "
     );
-db.set(`ArdaKeklikSoyisim_${message.author.id}`, soyisim)
+db.set(`AsreaperSoyisim_${message.author.id}`, soyisim)
 return message.channel.send(
-    " **Arda Keklik** \n**------------------------------------**\n**• Soy isim başarıyla ayarlandı.** \n**• Belirtilen Soy İsim ->** `" +
+    " **Asreaper** \n**------------------------------------**\n**• Soy isim başarıyla ayarlandı.** \n**• Belirtilen Soy İsim ->** `" +
     soyisim +
-    "` \n`• !yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Arda Keklik**"
+    "` \n`• !yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Asreaper**"
     );
 
 
