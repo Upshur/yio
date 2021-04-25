@@ -28,7 +28,9 @@
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "wio.db": "^4.0.9",
-    "ytdl-core": "^4.0.0"
+    "ytdl-core": "^4.0.0",
+    "canvas": "^2.7.0",
+    "dblapi.js": "^2.4.1"
   },
   "engines": {
     "node": "12.x"
