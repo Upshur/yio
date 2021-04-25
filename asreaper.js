@@ -122,14 +122,11 @@ client.on("error", e => {
   console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
 });
 
-client.login(asreaper.token)
+client.login(process.env.TOKEN)
 //////////////////////////////////////////////
 client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
-"oynuyor":"Youtube: Muhammed Demirel",
-"prefix":"!",
-"sahip":"721126378833051670",
-"token":""
+"oynuyor":"Youtube: ASreaper",
 }
 client.ekoayarlar = {
   parabirimi: "TL", //Para Birimi TL İsterseniz Dolar Euro Vb. Para Birimleri Girebilirsiniz.
