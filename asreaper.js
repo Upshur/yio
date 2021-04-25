@@ -1250,113 +1250,7 @@ client.on("message", async msg => {
 
 //küfür engel son //
 
-client.on('voiceChannelJoin',async(member,channel)=>{
-let f = db.fetch(`özeloda_${channel.guild.id}`) 
-let ne = db.fetch(`odam_${member.id}_${channel.guild.id}`)
-let kontrol;
-if(ne) kontrol = member.guild.channels.cache.get(ne.channel.id)
 
-if(f) {
-  
-  let fe = f.find(a => a.k.id == channel.id)
-  
-  if(fe) {
-    let bule = channel.guild.channels.cache.get(fe.k.id)
-      if(ne) {
-        if(!kontrol) {
-         
-          channel.guild.channels.create(`${member.user.username}`,{type : "voice",parent : bule.parent,reason : "Özel Oda sistemi Lrows"}).then(async a =>{
-            await db.set(`odam_${member.id}`,{durum : true, user : member.id,channel : a})
-            await a.updateOverwrite(channel.guild.roles.everyone,{
-              CONNECT : false,
-
-            })
-            await a.updateOverwrite(member,{
-              CONNECT : true,
-            })
-            member.voice.setChannel(a.id)
-            member.send(`✅ Özel Odanı Silmişler :/ Fakat üzülme ben yeniden açtım!`)
-           
-          
-          })
-          return;
-        }
-     await member.voice.setChannel(ne.channel.id)
-      member.send(`✅ **Geç Odana bakayım!** Seni Odana attım Komutları Uygulayabilirsin.`)
-      db.set(`odam_${member.id}_${channel.guild.id}.durum`,true)
-      return;
-      }
-    
-    if(!ne) {
-    if(!bule) return channel.guild.channels.cache.filter(a => a.type == "text").random().send(`${channel.guild.owner}, Ayarladığınız özel oda kanalı olan \`${f.k.name}(${f.k.id})\` Bulanamadı! **${client.prefix}özel-oda çıkar ${f.k.id}**`)
-    channel.guild.channels.create(`${member.user.username}`,{type : "voice",parent : bule.parent,reason : "Özel Oda sistemi Lrows"}).then(async a =>{
-      db.set(`odam_${member.id}_${channel.guild.id}`,{durum : true, user : member.id,channel : a})
-     await member.voice.setChannel(a.id)
-     await a.updateOverwrite(channel.guild.roles.everyone,{
-      CONNECT : false,
-
-    })
-    await a.updateOverwrite(member,{
-      CONNECT : true,
-    })
-  member.send(`✅ Özel Odanı Oluşturdum Uygulayabilceğin bir sürü Komut var!`)
-    
-  
-  }).catch(e => console.error(e))
-}
-}
-
-
-    
-    if(ne && !fe) {
-      let f = db.fetch(`özeloda_${channel.guild.id}`) 
-      
-let bule = channel.guild.channels.cache.get(f[0].k.id)//ilk gördüğü özel odanın kategorisine ekler.
-      if(ne.channel.id == channel.id) {
-       await db.set(`odam_${member.id}_${channel.guild.id}.durum`,true)
-     member.send('Yeniden Hoşgeldin Patron, Lrows iyi Eğlenceler diler')
-      }
-      if(!kontrol) {
-
-    channel.guild.channels.create(`${member.user.username}`,{type : "voice",parent : bule.parent,reason : "Özel Oda sistemi Lrows"}).then(async a =>{
-      await a.updateOverwrite(channel.guild.roles.everyone,{
-        CONNECT : false,
-
-      })
-      await a.updateOverwrite(member,{
-        CONNECT : true,
-      })
-      member.send(`✅ Özel Odanı Silmişler :/ Fakat üzülme ben yeniden açtım!`)
-      await db.set(`odam_${member.id}_${channel.guild.id}`,{durum : true, user : member.id,channel : a})
-       member.voice.setChannel(a.id)
-    
-    })
-    return;
-      }
-
-    }
-    
-
-}
-})
-client.on('voiceChannelLeave',(member,channel)=>{
-  let f = db.fetch(`özeloda_${channel.guild.id}`)
-  let ne = db.fetch(`odam_${member.id}_${channel.guild.id}`)
-  if(f) {
-    
- 
-if(ne){
-   if(ne.durum == true) {
-    if(channel.id == ne.channel.id){
-    member.send(`✅ Özel Odadan çıktınız  \`${client.prefix}kapat\` Yazarsanız odanızı Kapatabilirsiniz veya hep kalabilir`)
-db.set(`odam_${member.id}_${channel.guild.id}.durum`,false)
-    }
-}
-}
-
-  
-}
-  })
  
 /////////////
 //----------------------------------Özel oda sistemi----------------------------// 
@@ -1367,7 +1261,7 @@ client.on('message', async message => {
   const command = args.shift().toLowerCase();
   let u = message.mentions.users.first() || message.author;
   if (command === "özeloda") {
-  if (message.guild.channels.find(channel => channel.name === "Bot Kullanımı")) return message.channel.send(" Bot Paneli Zaten Ayarlanmış.")
+  if (message.guild.channels.cache.find(channel => channel.name === "Bot Kullanımı")) return message.channel.send(" Bot Paneli Zaten Ayarlanmış.")
   if (!message.member.hasPermission('ADMINISTRATOR'))
   return message.channel.send(" Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir.");
     message.channel.send(`Özel Oda Sisteminin Kurulmasını İstiyorsanız **Kur** Yazınız.`)
@@ -1378,37 +1272,36 @@ client.on('message', async message => {
      })
     .then((collected) => {
 
-message.guild.createChannel('【🔐】2 Kişilik Odalar【🔐】', 'category', [{
+message.guild.channels.create('【🔐】2 Kişilik Odalar【🔐】', 'category', [{
   id: message.guild.id,
 }]);
 
-message.guild.createChannel(`➕│2 Kişilik Oda`, 'voice')
+message.guild.channels.create(`➕│2 Kişilik Oda`, 'voice')
 .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "【🔐】2 Kişilik Odalar【🔐】")))
+      channel.setParent(message.guild.channels.cache.find(channel => channel.name === "【🔐】2 Kişilik Odalar【🔐】")))
 
-message.guild.createChannel('【🔐】3 Kişilik Odalar【🔐】', 'category', [{
+message.guild.channels.create('【🔐】3 Kişilik Odalar【🔐】', 'category', [{
   id: message.guild.id,
 }]);
 
-message.guild.createChannel(`➕│3 Kişilik Oda`, 'voice')
+message.guild.channels.create(`➕│3 Kişilik Oda`, 'voice')
 .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "【🔐】3 Kişilik Odalar【🔐】")))
+      channel.setParent(message.guild.channels.cache.find(channel => channel.name === "【🔐】3 Kişilik Odalar【🔐】")))
 
-message.guild.createChannel('【🔐】4 Kişilik Odalar【🔐】', 'category', [{
+message.guild.channels.create('【🔐】4 Kişilik Odalar【🔐】', 'category', [{
   id: message.guild.id,
 }]);
 
-message.guild.createChannel(`➕│4 Kişilik Oda`, 'voice')
+message.guild.channels.create(`➕│4 Kişilik Oda`, 'voice')
 .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "【🔐】4 Kişilik Odalar【🔐】")))
+      channel.setParent(message.guild.channels.cache.find(channel => channel.name === "【🔐】4 Kişilik Odalar【🔐】")))
 
-message.guild.createChannel('【🔐】5 Kişilik Odalar【🔐】', 'category', [{
+message.guild.channels.create('【🔐】5 Kişilik Odalar【🔐】', 'category', [{
   id: message.guild.id,
 }]);
-message.guild.createChannel(`➕│5 Kişilik Oda`, 'voice')
+message.guild.channels.create(`➕│5 Kişilik Oda`, 'voice')
 .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "【🔐】5 Kişilik Odalar【🔐】")))
-
+      channel.setParent(message.guild.channels.cache.find(channel => channel.name === "【🔐】5 Kişilik Odalar【🔐】")))
        message.channel.send("Özel Oda Sistemi Aktif")
      
             })   
@@ -1416,3 +1309,48 @@ message.guild.createChannel(`➕│5 Kişilik Oda`, 'voice')
 }
 });
 //----------------------------------Özel oda sistemi Son--------------------------
+
+client.on("guildMemberAdd", async(member) => {
+    let sunucupaneli = await db.fetch(`sunucupanel_${member.guild.id}`)
+    if(sunucupaneli) {
+      let rekoronline = await db.fetch(`panelrekor_${member.guild.id}`)
+      let toplamuye = member.guild.channels.find(x =>(x.name).startsWith("Toplam Üye •"))
+      let toplamaktif = member.guild.channels.find(x =>(x.name).startsWith("Aktif Üye •"))
+      let botlar = member.guild.channels.find(x =>(x.name).startsWith("Botlar •"))
+      let rekoraktif = member.guild.channels.find(x =>(x.name).startsWith("Rekor Aktiflik •"))
+      
+      if(member.guild.members.filter(off => off.presence.status !== 'offline').size > rekoronline) {
+        db.set(`panelrekor_${member.guild.id}`, member.guild.members.filter(off => off.presence.status !== 'offline').size)
+      }
+      try{
+        toplamuye.setName(`Toplam Üye • ${member.guild.members.size}`)
+        toplamaktif.setName(`Aktif Üye • ${member.guild.members.filter(off => off.presence.status !== 'offline').size}`)
+        botlar.setName(`Botlar • ${member.guild.members.filter(m => m.user.bot).size}`)
+        rekoraktif.setName(`Rekor Aktiflik • ${rekoronline}`)
+     } catch(e) { }
+    }
+  })
+  
+  client.on("guildMemberRemove", async(member) => {
+    let sunucupaneli = await db.fetch(`sunucupanel_${member.guild.id}`)
+    if(sunucupaneli) {
+      let rekoronline = await db.fetch(`panelrekor_${member.guild.id}`)
+      let toplamuye = member.guild.channels.find(x =>(x.name).startsWith("Toplam Üye •"))
+      let toplamaktif = member.guild.channels.find(x =>(x.name).startsWith("Aktif Üye •"))
+      let botlar = member.guild.channels.find(x =>(x.name).startsWith("Botlar •"))
+      let rekoraktif = member.guild.channels.
+      find(x =>(x.name).startsWith("Rekor Aktiflik •"))
+      
+      if(member.guild.members.filter(off => off.presence.status !== 'offline').size > rekoronline) {
+        db.set(`panelrekor_${member.guild.id}`, member.guild.members.filter(off => off.presence.status !== 'offline').size)
+      }
+      try{
+        toplamuye.setName(`Toplam Üye • ${member.guild.members.size}`)
+        toplamaktif.setName(`Aktif Üye • ${member.guild.members.filter(off => off.presence.status !== 'offline').size}`)
+        botlar.setName(`Botlar • ${member.guild.members.filter(m => m.user.bot).size}`)
+        rekoraktif.setName(`Rekor Aktiflik • ${rekoronline}`)
+     } catch(e) { }
+    }
+  })
+
+
