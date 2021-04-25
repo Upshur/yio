@@ -10,7 +10,14 @@ exports.run = (client, message) => {
  .setDescription(`
  **${Prefix}bilgiler** \n-> Hesap Bilgisini Gösterir
  **${Prefix}bakiye** \n-> Bakiyeyi Gösterir
- **${Prefix}g* \n-> 
+ **${Prefix}günlükpara** \n->  Günlük Para Ödülü Alırsın
+ **${Prefix}hesap-oluştur** \n->  Hesap Oluşturursun
+ **${Prefix}hesap-sil** \n->  Hesap Silersin
+ **${Prefix}kasa-aç** \n->  Kasa Açarsın
+  **${Prefix}kasa-bilgi** \n->  Kasalar Hakkında Bilgi Alırsın
+ **${Prefix}transfer** \n->  Belirtilen Kişiye Belirtilen Miktarda Para Gönderirsin
+
+
 `)
  .setFooter(`Asreaper Bot`)
  .setTimestamp()
@@ -25,7 +32,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'çekilişsistemi',
+  name: 'ekonomisistemi',
   description: 'Bot ile ilgili bilgi verir.',
   usage: 'bilgi'
 };

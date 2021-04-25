@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
       const embed = new Discord.MessageEmbed()
         .setColor(0x36393F)
         .setFooter(client.user.username, client.user.avatarURL())
-        .setDescription(`<a:cryptored:770187639801774080> Rol koruma sistemi zaten ayarlanmamış!`);
+        .setDescription(` Rol koruma sistemi zaten ayarlanmamış!`);
       message.channel.send(embed);
       return;
     }
@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     const embed = new Discord.MessageEmbed()
       .setColor(0x36393F)
       .setFooter(client.user.username, client.user.avatarURL())
-      .setDescription(`<a:cryptored:770187639801774080> Rol koruma sistemi sıfırlandı!`);
+      .setDescription(`Rol koruma sistemi sıfırlandı!`);
     message.channel.send(embed);
     return;
   } else {
@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
       const embed = new Discord.MessageEmbed()
         .setColor(0x36393F)
         .setFooter(client.user.username, client.user.avatarURL())
-        .setDescription(`<a:cryptored:770187639801774080> Rol koruma sistemi zaten ayarlanmamış!`);
+        .setDescription(` Rol koruma sistemi zaten ayarlanmamış!`);
       message.channel.send(embed);
       return;
     }
@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args) => {
     const embed = new Discord.MessageEmbed()
       .setColor(0x36393F)
       .setFooter(client.user.username, client.user.avatarURL())
-      .setDescription(`<a:cryptored:770187639801774080> Rol koruma sistemi sıfırlandı!`);
+      .setDescription(` Rol koruma sistemi sıfırlandı!`);
     message.channel.send(embed);
     return;
   }

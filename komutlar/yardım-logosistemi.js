@@ -1,10 +1,10 @@
-const WestraDiscord = require('discord.js');
-const WestraClient = new WestraDiscord.Client();
+const AsreaperDiscord = require('discord.js');
+const AsreaperClient = new AsreaperDiscord.Client();
 const ayarlar = require('../ayarlar.json');
 let prefix = ayarlar.prefix
 
 exports.run = (client, message) => {
- const WestraEmbed = new WestraDiscord.MessageEmbed()
+ const AsreaperEmbed = new AsreaperDiscord.MessageEmbed()
   .setColor(0x36393F)
  .setAuthor(`${client.user.username} | Logo Sistemi Yardım Menüsü`)
  .setDescription(`
@@ -14,7 +14,7 @@ exports.run = (client, message) => {
  **${prefix}grafiti** \n-> Graffiti şeklinde logo yapar.
 `)
  .setTimestamp()
- message.channel.send(WestraEmbed)
+ message.channel.send(AsreaperEmbed)
 }
 exports.conf = {
   enabled: true,

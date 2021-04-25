@@ -29,6 +29,6 @@
 
 exports.help = {
   name: 'reklamengel',
-  description: 'WESTRA',
-  usage: 'WESTRA'
+  description: "",
+  usage: ''
 }

@@ -18,7 +18,7 @@ if (!logk) return message.channel.send(`<a:cryptored:770187639801774080> Yanlı�
 
 db.set(`log_${message.guild.id}`, logk.id)
 
-message.channel.send(`<a:cryptoonay:770187690402250772> Mod-log kanalı başarıyla ${logk} olarak ayarlandı.`);
+message.channel.send(` Mod-log kanalı başarıyla ${logk} olarak ayarlandı.`);
  message.react('607634966959882250')
 
 };

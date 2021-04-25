@@ -1,10 +1,10 @@
-const WestraDiscord = require('discord.js');
+const AsreaperDiscord = require('discord.js');
 exports.run = (client, message) => {
-  const WestraEmbed = new WestraDiscord.MessageEmbed()
+  const AsreaperEmbed = new AsreaperDiscord.MessageEmbed()
   .setColor("BLUE")
   .setTimestamp()
   .setImage(client.users.cache.random().displayAvatarURL({ display: true, dynamic: true }))
-  message.channel.send(WestraEmbed)
+  message.channel.send(AsreaperEmbed)
 }
 exports.conf = {
   enabled: true,

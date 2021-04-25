@@ -1,10 +1,10 @@
-const WestraDiscord = require('discord.js');
-const WestraClient = new WestraDiscord.Client();
+const AsreaperDiscord = require('discord.js');
+const AsreaperClient = new AsreaperDiscord.Client();
 const ayarlar = require('../ayarlar.json');
 let prefix = ayarlar.prefix
 
 exports.run = (client, message) => {
- const WestraEmbed = new WestraDiscord.MessageEmbed()
+ const AsreaperEmbed = new AsreaperDiscord.MessageEmbed()
   .setColor(0x36393F)
  .setAuthor(`${client.user.username} | Kayıt Sistemi Yardım Menüsü`)
  .setDescription(` **${prefix}alınacak-rol @rol** \n-> Kayıt edilen kişiden alınacak rolü ayarlar.
@@ -23,7 +23,7 @@ exports.run = (client, message) => {
 **${prefix}kız @kullanıcı isim yaş** \n-> Kızları kayıt etmeye yarar.
 `)
  .setTimestamp()
- message.channel.send(WestraEmbed)
+ message.channel.send(AsreaperEmbed)
 }
 exports.conf = {
   enabled: true,
