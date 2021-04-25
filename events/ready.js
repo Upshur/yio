@@ -8,15 +8,15 @@ module.exports = client => {
  setInterval(function() {
 }, 8000);
   var msgArray = [
-"MaximusBoys",
-"Asreaper Önderliğinde",
-"Her Daim!",
-    "MaximusBoys"
+"Asreaper",
+"Asreaper1",
+"Asreaper2",
+    "Asreaper3"
  ];
 
  setInterval(() => {
   var rastgeleOyun = Math.floor(Math.random() * msgArray.length);
   client.user.setActivity(`${msgArray[rastgeleOyun]}`, { type: 'STREAMING' ,  url: 'https://www.twitch.tv/mbasreaper' })
 }, 5000);
-    console.log(`Asreaper başarıyla giriş yaptı.`);
+    console.log(`Bot Hazır | youtube.com/asreaper`);
 }

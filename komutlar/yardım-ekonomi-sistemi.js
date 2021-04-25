@@ -19,7 +19,7 @@ exports.run = (client, message) => {
 
 
 `)
- .setFooter(`Asreaper Bot`)
+ .setFooter(`Asreaper Deneme`)
  .setTimestamp()
  message.channel.send(AsreaperEmbed)
 }
