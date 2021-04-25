@@ -13,7 +13,7 @@ return message.channel.send(
 db.set(`Asreaperİsim_${message.author.id}`, isim)
 return message.channel.send(
     "**Asreaper**\n**------------------------------------**\n**• Profil isminiz başarıyla ayarlandı.** \n**• Belirtilen İsim ->** `" +
-    iim +
+    isim +
     "` \n`• !yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Asreaper**"
     );
 

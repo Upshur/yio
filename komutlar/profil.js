@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   if (user.bot) return message.channel.send("Botların profili olmaz.");
   
   let bayrak = db.fetch(`Asreaperbayrak_${user.id}`) || `Ayarlanmamış` 
-  let cinsiyet = db.fetch(`Asreapercinsiyet_${user.id}`) || `Ayarlanmamış`
+  let cinsiyet = db.fetch(`AsreaperCinsiyet_${user.id}`) || `Ayarlanmamış`
   let isim = db.fetch(`Asreaperİsim_${user.id}`) || `Ayarlanmamış`
   let soyisim = db.fetch(`AsreaperSoyisim_${user.id}`) || `Ayarlanmamış`
   let yas = db.fetch(`AsreaperYas_${user.id}`) || `Ayarlanmamış`
