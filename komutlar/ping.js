@@ -1,23 +1,52 @@
-const WestraDiscord =
-      require('discord.js');
-const WestraClient =
-      new WestraDiscord.Client();
-exports.run = (client, message) => {
-  if(message.author.id !== "390162986926473216") if(message.author.id !== "488384549479251969") return message.channel.send("hoop bilader sahip komutu bu");
-const WestraEmbed = new WestraDiscord.MessageEmbed().setColor(0x36393F).setFooter(``).setTimestamp()
-.setDescription(`  ping değeri şu an = **${client.ws.ping} ms**`)
-message.channel.send(WestraEmbed)
+const Discord = require("discord.js");
+const db = require("quick.db");
+let config = require("../utils/errors.js");
+
+exports.run = async (client, message, args) => {
+
+  let user = message.mentions.users.first() || message.author;
+  if (user.bot) return message.channel.send("Botların profili olmaz.");
+  
+  let bayrak = db.fetch(`ArdaKeklikbayrak_${user.id}`) || `Ayarlanmamış` 
+  let cinsiyet = db.fetch(`ArdaKeklikCinsiyet_${user.id}`) || `Ayarlanmamış`
+  let isim = db.fetch(`Asreaperİsim_${user.id}`) || `Ayarlanmamış`
+  let soyisim = db.fetch(`ArdaKeklikSoyisim_${user.id}`) || `Ayarlanmamış`
+  let yas = db.fetch(`ArdaKeklikYas_${user.id}`) || `Ayarlanmamış`
+  
+  
+const ArdaKeklik = new Discord.MessageEmbed()
+
+.setColor("#ff0000")
+.setAuthor(`${isim} ${soyisim} Adlı kişinin profili aşağıda bulunuyor.`)
+.setThumbnail(user.avatarURL())
+.setDescription(`
+
+•**Bayrak:** ${bayrak}
+║══════════════════════
+•**Cinsiyet:** ${cinsiyet}
+║══════════════════════
+•**İsim:** ${isim}
+║══════════════════════
+•**Soy İsim:** ${soyisim}
+║══════════════════════
+•**Yaş:** ${yas}
+
+`)
+
+return message.channel.send(ArdaKeklik);
+
 };
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  kategori: "Bot",
-  permLevel: 0
+  permLevel: 0,
+  kategori: "Profil"
 };
-
+ 
 exports.help = {
-  name: 'ping',
-  description: 'Bot ile ilgili bilgi verir.',
-  usage: 'bilgi'
+  name: "profil",
+  description: "profil",
+  usage: "profil",
+  kategori: "Profil"
 };
