@@ -1354,3 +1354,9 @@ client.on("guildMemberAdd", async(member) => {
   })
 
 
+client.on('guildCreate', guild => {
+
+    let bigz = guild.channels.filter(c => c.type === "text").random()
+    bigz.send("**Asreaper Botunu Sunucuya Eklediğiniz İçin Teşekkürler!** \n");
+
+});
