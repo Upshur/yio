@@ -1356,7 +1356,16 @@ client.on("guildMemberAdd", async(member) => {
 
 client.on('guildCreate', guild => {
 
-    let bigz = guild.channels.filter(c => c.type === "text").random()
-    bigz.send("**Asreaper Botunu Sunucuya Eklediğiniz İçin Teşekkürler!** \n");
+    let asreaper1 = guild.channels.filter(c => c.type === "text").random()
+    asreaper1.send("**Asreaper Botunu Sunucuya Eklediğiniz İçin Teşekkürler!** \n !yardım Yazarak Yardım Menüsüne Erişebilirsiniz!");
 
+});
+client.on("guildCreate", async guild => {
+  const asreaper2 = [
+    "Botumuzu Sunucuna Eklediğin İçin Teşekkürler!",
+    "Bu Bot Asreaper Tarafından Geliştirilmiştir!",
+    '!yardım Yazarak Yardım Menüsüne Ulaşabilirsin'
+  ];
+  guild.owner.send(asreaper2);
+  console.log(`LOG: ${guild.name}. sunucuya katıldım!`);
 });
