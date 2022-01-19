@@ -8,10 +8,10 @@ module.exports = client => {
  setInterval(function() {
 }, 8000);
   var msgArray = [
-"Asreaper",
-"Asreaper1",
-"Asreaper2",
-    "Asreaper3"
+"e+yardım",
+"iyi kullanımlar",
+"Sahip:Evolve",
+    "e+Davet"
  ];
 
  setInterval(() => {
