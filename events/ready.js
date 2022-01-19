@@ -10,7 +10,7 @@ module.exports = client => {
   var msgArray = [
 "e+yardım",
 "iyi kullanımlar",
-"Sahip:Evolve",
+"e+shard",
     "e+Davet"
  ];
 

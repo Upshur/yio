@@ -675,7 +675,7 @@ client.on("guildMemberAdd", async member => {
 const Asreaper = new Discord.MessageEmbed()
 .setColor("BLUE")
 .setTimestamp()
-.setFooter(`Asreaper`)
+.setFooter(`Evolve`)
 .setDescription( " **" +
           member.user.username +
           "** hoş geldin! Otomatik rolün verildi. Seninle beraber **" +
@@ -1357,14 +1357,14 @@ client.on("guildMemberAdd", async(member) => {
 client.on('guildCreate', guild => {
 
     let asreaper1 = guild.channels.filter(c => c.type === "text").random()
-    asreaper1.send("**Asreaper Botunu Sunucuya Eklediğiniz İçin Teşekkürler!** \n !yardım Yazarak Yardım Menüsüne Erişebilirsiniz!");
+    asreaper1.send("**Evolve Botunu Sunucuya Eklediğiniz İçin Teşekkürler!** \n e+yardım Yazarak Yardım Menüsüne Erişebilirsiniz!");
 
 });
 client.on("guildCreate", async guild => {
   const asreaper2 = [
     "Botumuzu Sunucuna Eklediğin İçin Teşekkürler!",
-    "Bu Bot Asreaper Tarafından Geliştirilmiştir!",
-    '!yardım Yazarak Yardım Menüsüne Ulaşabilirsin'
+    "Bu Bot Evolve Tarafından Geliştirilmiştir!",
+    'e+yardım Yazarak Yardım Menüsüne Ulaşabilirsin'
   ];
   guild.owner.send(asreaper2);
   console.log(`LOG: ${guild.name}. sunucuya katıldım!`);

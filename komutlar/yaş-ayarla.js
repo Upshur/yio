@@ -8,13 +8,13 @@ exports.run = async (client, message, args) => {
   if (!yas)
 
 return message.channel.send(
- "**Asreaper** \n\n ・**Lütfen yaş belirtin.** \n :・**Örnek:** **!yaş-ayarla** `(Yaş)` \n・`**Tüm komutlara erişmek için -> !yardım** \n\n**Asreaper**"
+ "**Evolve** \n\n ・**Lütfen yaş belirtin.** \n :・**Örnek:** **e+yaş-ayarla** `(Yaş)` \n・`**Tüm komutlara erişmek için -> e+yardım** \n\n**Evolve**"
     );
 db.set(`AsreaperYas_${message.author.id}`, yas)
 return message.channel.send(
-    " **Asreaper** \n**------------------------------------**\n**• Yaş başarıyla ayarlandı. ** \n**• Belirtilen Yaş ->** " +
+    " **Evolve** \n**------------------------------------**\n**• Yaş başarıyla ayarlandı. ** \n**• Belirtilen Yaş ->** " +
       yas +
-      "` \n`• !yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Asreaper**"
+      "` \n`• e+yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Evolve**"
       );
 ;
 };
