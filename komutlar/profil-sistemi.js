@@ -6,7 +6,7 @@ exports.run = (client, message) => {
 const AsreaperEMBED = new Discord.MessageEmbed()
 
 .setColor("GREEN")
-.setTitle(" **Asreaper**")
+.setTitle(" **Evolve**")
 .setDescription(`
 
 ** Profil Sistemi | Komut Listesi**
