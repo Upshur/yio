@@ -17,7 +17,7 @@ exports.run = (client, message) => {
  **${prefix}rol-koruma-sıfırla** \n-> Rol koruma sistemini sıfırlar.
  **${prefix}spam-koruma** \n-> Spam koruma sistemini açar.
  **${prefix}spam-koruma-kapat** \n-> Spam koruma sistemini kapatır.`)
- .setFooter(`Asreaper`)
+ .setFooter(`Evolve`)
  .setTimestamp()
  .setImage(gif)
  message.channel.send(AsreaperEmbed)
