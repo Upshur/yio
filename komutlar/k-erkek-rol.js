@@ -12,7 +12,7 @@ const sıfırlandı = new discord.MessageEmbed()
 .setColor(0x36393F)
 .setDescription(` Sunucu için ayarladığınız erkek rolü başarıyla sıfırlandı!`)
 .setThumbnail(client.user.avatarURL)
-.setFooter(`Asreaper`)
+.setFooter(`Evolve`)
 message.channel.send(sıfırlandı)
 db.delete(`erkekrol_${message.guild.id}`)
 return;

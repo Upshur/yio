@@ -3,7 +3,7 @@ const AsreaperClient = new AsreaperDiscord.Client();
 exports.run = (client, message) => {
   const AsreaperEmbed = new AsreaperDiscord.MessageEmbed();
   AsreaperEmbed.setColor(0x36393F)
-  AsreaperEmbed.setDescription(` Asreaperi davet etmek için [buraya](Link) tıkla!`)
+  AsreaperEmbed.setDescription(` Evolve davet etmek için [buraya](Link) tıkla!`)
   message.channel.send(AsreaperEmbed)
 }
 exports.conf = {

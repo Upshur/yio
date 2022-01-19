@@ -8,13 +8,13 @@ let isim = args.slice(0).join(" ");
 if (!isim)
 
 return message.channel.send(
- "**Asreaper**\n\n ・**Lütfen isim belirtin.** \n **Örnek:** **!isim-ayarla** `(İsim)` \n ・`**Tüm komutlara erişmek için -> !yardım**  \n\n**Asreaper**"
+ "**Evolve**\n\n ・**Lütfen isim belirtin.** \n **Örnek:** **!isim-ayarla** `(İsim)` \n ・`**Tüm komutlara erişmek için -> !yardım**  \n\n**Evolve**"
     );
 db.set(`Asreaperİsim_${message.author.id}`, isim)
 return message.channel.send(
-    "**Asreaper**\n**------------------------------------**\n**• Profil isminiz başarıyla ayarlandı.** \n**• Belirtilen İsim ->** `" +
+    "**Evolve**\n**------------------------------------**\n**• Profil isminiz başarıyla ayarlandı.** \n**• Belirtilen İsim ->** `" +
     isim +
-    "` \n`• !yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Asreaper**"
+    "` \n`• e+yardım` **Yazarak tüm komutlara erişebilirsiniz.** \n **------------------------------------**\n**Evolve**"
     );
 
 };
